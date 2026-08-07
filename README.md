@@ -92,7 +92,6 @@ Loss_relative = 20 log10 |H(f)/H(fref)|
 - 狭ギャップの最終2メッシュ差 0.0622%。
 - 外周20a→24a差 0.0974%。
 - Web精密FEMと独立Python FEMの回帰差 0.2884%。
-- 添付動画条件の独立計算は、1 kHz→10 kHzの追加損失 `-0.10964 dB`。動画の約 `-0.986 dB` を正解値として使用していない。
 
 独立検証コード `validation/reference_fem.py` は Triangle による別メッシュと SciPy sparse direct solve を使い、ブラウザ実装の triangulation/iterative solver を共有しない。
 
@@ -126,4 +125,4 @@ Loss_relative = 20 log10 |H(f)/H(fref)|
 - `components/Simulator.tsx` — 入力、主要値、伝送量、注意書き
 - `validation/web-solver.test.ts` — ブラウザ数値核の自動回帰試験
 - `validation/reference_fem.py` — 独立Python FEM
-- `validation/VALIDATION.md` — 検証表と添付動画条件比較
+- `validation/VALIDATION.md` — 検証表

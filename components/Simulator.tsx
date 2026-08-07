@@ -99,7 +99,6 @@ export default function Simulator() {
         <div className="control-block"><div className="control-head"><label>基準周波数</label><select value={reference} onChange={e => setReference(e.target.value)}><option value="dc">DC近似</option><option value="20">20 Hz</option><option value="100">100 Hz</option><option value="1000">1 kHz</option><option value="custom">ユーザー入力</option></select></div>{reference === "custom" && <div className="inline-input"><input type="number" min="1" max="100000" value={customRef} onChange={e => setCustomRef(clamp(Number(e.target.value), 1, 100000))}/><span>Hz</span></div>}</div>
         <div className="control-block"><div className="control-head"><label>20℃基準の導電率 σ</label><div><input type="number" min="1000000" max="100000000" step="100000" value={sigma20} onChange={e => setSigma20(clamp(Number(e.target.value), 1e6, 1e8))}/><span>S/m</span></div></div></div>
         <div className="control-block"><div className="control-head"><label>銅温度</label><div><input type="number" min="-20" max="150" step="1" value={temperatureC} onChange={e => setTemperature(clamp(Number(e.target.value), -20, 150))}/><span>℃</span></div></div><small>α = 0.00393 /℃ → 使用 σ = {sigma.toExponential(4)} S/m</small></div>
-        <button className="preset" type="button" onClick={applyRegression}>添付動画と同条件の回帰プリセット</button>
       </aside>
 
       <div className="results">
