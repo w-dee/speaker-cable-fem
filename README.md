@@ -34,6 +34,14 @@ npm run build
 
 GitHub-hosted `ubuntu-latest` runner を前提としており、ビルド用のSecretは不要。現在の `npm run build` はVinext/Cloudflare Worker形式の成果物を生成するため、このWorkflowはCIビルド用であり、GitHub Pagesへの静的デプロイは行わない。
 
+### GitHub Pagesへの公開
+
+`.github/workflows/pages.yml` は `main` への push または手動実行で、Next.jsの静的出力をGitHub Pagesへデプロイする。Cloudflare Worker用の `npm run build` とは別経路である。
+
+初回のみ、GitHubリポジトリの `Settings` → `Pages` → `Build and deployment` → `Source` で `GitHub Actions` を選択する。以後、`main` にpushすると自動公開される。
+
+このリポジトリの公開URLは通常 `https://w-dee.github.io/speaker-cable-fem/` になる。公開元リポジトリを別名へ移す場合も、Actionsの `GITHUB_REPOSITORY` からサブパスを自動設定する。
+
 ## 物理モデル
 
 時間依存 `exp(jωt)`、未知量は軸方向磁気ベクトルポテンシャル `Az`。導体 k 内は
